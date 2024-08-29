@@ -57,30 +57,44 @@ function App() {
     };
 
     return (
-        <div>
-            <h1>FT Platform</h1>
-            <p>Account: {account}</p>
+        <Container>
+            <Typography variant="h4" gutterBottom>
+                FT Platform
+            </Typography>
+            <Typography variant="subtitle1">
+                Account: {account}
+            </Typography>
 
-            <h2>Create a Proposal</h2>
+            <Typography variant="h5" gutterBottom>
+                Create a Proposal
+            </Typography>
             <form onSubmit={(e) => {
                 e.preventDefault();
                 createProposal(e.target.elements.description.value);
             }}>
-                <input type="text" name="description" placeholder="Proposal description" required />
-                <button type="submit">Submit</button>
+                <TextField fullWidth label="Proposal description" name="description" required />
+                <Button type="submit" variant="contained" color="primary" style={{ marginTop: '10px' }}>
+                    Submit
+                </Button>
             </form>
 
-            <h2>Proposals</h2>
+            <Typography variant="h5" gutterBottom style={{ marginTop: '20px' }}>
+                Proposals
+            </Typography>
             {proposals.map((proposal, index) => (
-                <div key={index}>
-                    <p>ID: {proposal.id}</p>
-                    <p>Description: {proposal.description}</p>
-                    <p>Votes: {proposal.voteCount}</p>
-                    <p>Executed: {proposal.executed ? 'Yes' : 'No'}</p>
-                    <button onClick={() => voteOnProposal(proposal.id)}>Vote</button>
-                </div>
+                <Card key={index} style={{ marginTop: '10px' }}>
+                    <CardContent>
+                        <Typography>ID: {proposal.id}</Typography>
+                        <Typography>Description: {proposal.description}</Typography>
+                        <Typography>Votes: {proposal.voteCount}</Typography>
+                        <Typography>Executed: {proposal.executed ? 'Yes' : 'No'}</Typography>
+                        <Button onClick={() => voteOnProposal(proposal.id)} variant="contained" color="secondary" style={{ marginTop: '10px' }}>
+                            Vote
+                        </Button>
+                    </CardContent>
+                </Card>
             ))}
-        </div>
+        </Container>
     );
 }
 
