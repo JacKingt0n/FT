@@ -13,7 +13,7 @@ FT (Free Them) is a decentralized and immutable social media platform concept
 ### Installation
 
 1. Clone the repository
-2. Install dependencies: `npm install`
+2. Install dependencies: `npm install web3 ethers @mui/material @emotion/react @emotion/styled`
 3. Compile contracts: `truffle compile`
 4. Migrate contracts: `truffle migrate`
 5. Run tests: `truffle test`
