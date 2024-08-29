@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
+import { Container, Typography, TextField, Button, Card, CardContent } from '@mui/material';
 import FTToken from './contracts/FTToken.json';
 import FTGovernance from './contracts/FTGovernance.json';
 
